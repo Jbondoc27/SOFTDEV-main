@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hygge Coffee Shop</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+            transition: opacity 0.5s ease;
+        }
+        header {
+            background-image: url('images/background.jpg'); /* Background image for the header */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: slideDown 1s ease-out;
+        }
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: rotateLogo 4s infinite linear;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+            transform: scale(1.1);
+        }
+        /* Content Styles */
+        .content {
+            background: #D0B8A8;
+            padding: 2em;
+            margin: 1em 0;
+            background-image: url('images/hygge321.jpg'); /* Background image for the container */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1, h2 {
+            color: #ffffff;
+            font-family: Tahoma, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+            animation: fadeIn 1s ease;
+        }
+        .title {
+            font-size: larger;
+            font-weight: bolder;
+            color: black;
+            text-align: center;
+        }
+        .horizontal-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 1px;
+            margin: 1em 0;
+        }
+        .horizontal-section {
+            flex: 1;
+            background: #DEAC80;
+            padding: 20px;
+            margin: 0 10px;
+            border: 2px solid #D0B8A8;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            animation: fadeInUp 1s ease;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            animation: fadeIn 1.5s ease;
+        }
+        .about-section {
+            background-color: rgba(150, 111, 51, 0.8); /* Slightly transparent brown background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .about-section img {
+            float: right;
+            max-width: 300px;
+            margin-left: 20px;
+            border-radius: 20px;
+            animation: zoomIn 1.5s ease;
+        }
+        .name {
+            color: #ffffff;
+            font-family: Tahoma, sans-serif;
+            font-weight: 800;
+        }
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            header {
+                padding: 15px;
+            }
+            .logo-circle {
+                width: 120px;
+                height: 120px;
+            }
+            nav ul li {
+                margin-right: 15px;
+            }
+            nav ul li a {
+                padding: 12px 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .horizontal-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .horizontal-section {
+                margin: 10px 0;
+                width: 90%;
+                text-align: center;
+            }
+            .about-section img {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+                max-width: 100%;
+            }
+            nav ul {
+                flex-direction: column;
+                padding: 0;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1, h2 {
+                font-size: large;
+            }
+            p {
+                font-size: 14px;
+            }
+            .horizontal-section {
+                padding: 15px;
+                margin: 5px 0;
+                border: 1px solid #D0B8A8;
+            }
+            .logo-circle {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes rotateLogo {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #d2691e;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ffa07a;
+        }
+        /* Container for the content */
+        .Container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png.jpg" alt="Hygge Coffee Shop" class="logo-circle"> <!-- Add your logo here -->
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a class="Navbar" href="Homepage.html">Home</a></li>
+                    <li><a class="Navbar" href="about.html">About Us</a></li>
+                    <li><a class="Navbar" href="menu.html">Menu</a></li>
+                    <li><a class="Navbar" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="Container">
+            <h1>About Hygge</h1>
+            <div class="about-section">
+                <img src="images/hygge123.jpg" alt="Our Coffee Shop">
+                <div class="name">
+                    At HYGGE, we are more than just a lifestyle clothing brand—we embody a philosophy of simplicity, gratitude, and comfort. Our mission is to remind you to embrace the little moments in life, to pause and appreciate even the simplest things that often go unnoticed. Inspired by the Danish concept of "hygge," which celebrates coziness and well-being, our brand encourages you to start each day with a grateful heart.
+                    <br><br>
+                    HYGGE offers a range of comfortable, stylish lifestyle clothing designed to uplift your spirit and carry a message of positivity. Our collections are crafted with care, ensuring that every piece not only feels great to wear but also serves as a daily reminder to cherish life's small joys.
+                    <br><br>
+                    We are proud to introduce our HYGGE Coffee Shop, where you can experience the same sense of warmth and comfort with every sip. Our cozy café is the perfect place to unwind, catch up with friends, or simply enjoy a quiet moment with a cup of expertly brewed coffee. Just like our clothing, the coffee shop is designed to inspire relaxation, reflection, and gratitude in a welcoming environment.
+                    <br><br>
+                    At HYGGE, whether you’re wearing our clothing or enjoying a cup of coffee, we hope to remind you of the beauty in simplicity.
+                    <br><br>
+                    Start every day with a grateful heart—HYGGE.
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Hygge Coffee Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>

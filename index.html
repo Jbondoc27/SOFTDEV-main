@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hygge Coffee Shop</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background-image: url('images/background.jpg'); /* Add your background image here */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: rotateLogo 4s infinite linear;
+        }
+        /* Navbar Styles */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+            transform: scale(1.1);
+        }
+        /* Main Section */
+        .main-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+        .main-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .main-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .main-section button {
+            background-color: #8b4513;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .main-section button:hover {
+            background-color: #d2691e;
+            transform: scale(1.05);
+        }
+        /* Image Slider */
+        .image-slider {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 20px 0;
+            position: relative;
+        }
+        .image-container {
+            display: flex;
+            width: 100%;
+            animation: slide 16s linear infinite;
+        }
+        .image-container img {
+            height: 300px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            80% { transform: translateX(-80%); }
+        }
+        /* Featured Items */
+        .featured-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+        .featured-items .signature-drinks {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            padding: 0 20px;
+            color: #333;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        .featured-item {
+            text-align: center;
+            max-width: 22%;
+            margin-bottom: 50px;
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+        .featured-item img {
+            width: 90%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .featured-item img:hover {
+            transform: scale(1.1);
+        }
+        .featured-item h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .featured-item p {
+            font-size: 1em;
+            color: #666;
+        }
+        /* About Us */
+        .about-us {
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .about-us::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 239, 207, 0.4), rgba(255, 250, 240, 0.4));
+            z-index: 1;
+            opacity: 0.7;
+            animation: pulse 6s infinite;
+        }
+        .about-us h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+        .about-us p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #666;
+            position: relative;
+            z-index: 2;
+        }
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            width: 100%;
+        }
+        footer a {
+            color: #d2691e;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ffa07a;
+        }
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes rotateLogo {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 0.4; }
+            100% { opacity: 0.7; }
+        }
+        /* Responsive Design for Tablet */
+        @media (max-width: 1024px) {
+            .featured-item {
+                max-width: 30%;
+            }
+            .image-slider {
+                padding: 10px 0;
+            }
+        }
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                padding: 0;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .main-section, .about-us {
+                padding: 20px 10px;
+            }
+            .featured-items {
+                flex-direction: column;
+                align-items: center;
+            }
+            .featured-item {
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+            .image-slider {
+                padding: 10px 0;
+            }
+        }
+        /* Responsive Design for Small Mobile */
+        @media (max-width: 480px) {
+            .main-section h1 {
+                font-size: 2em;
+            }
+            .main-section p, .about-us p {
+                font-size: 1em;
+            }
+            .main-section button {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            .about-us h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png.jpg" alt="Hygge Coffee Shop" class="logo-circle"> <!-- Add your logo here -->
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="main-section">
+        <h1>Welcome to Hygge Coffee Shop</h1>
+        <p>Your cozy retreat in the heart of the city. Come in and savor the moment.</p>
+        <a href="menu.html">
+            <button>View Menu</button>
+        </a>
+        <div class="image-slider">
+            <div class="image-container">
+                <img src="images/int1.jpg" alt="Image 1">
+                <img src="images/int2.jpg" alt="Image 2">
+                <img src="images/int3.jpg" alt="Image 3">
+                <img src="images/int4.jpg" alt="Image 4">
+                <img src="images/int5.jpg" alt="Image 5">
+                <img src="images/int6.jpg" alt="Image 6">
+                <img src="images/int1.jpg" alt="Image 1">
+                <img src="images/int2.jpg" alt="Image 2">
+                <img src="images/int3.jpg" alt="Image 3">
+                <img src="images/int4.jpg" alt="Image 4">
+                <img src="images/int5.jpg" alt="Image 5">
+                <img src="images/int6.jpg" alt="Image 6">
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-items">
+        <div class="signature-drinks">SIGNATURE DRINKS</div>
+        <div class="featured-item">
+            <img src="images/drink1.jpg" alt="Seasalt Latte"> <!-- Add your item image here -->
+            <h3>Seasalt Latte</h3>
+        </div>
+        <div class="featured-item">
+            <img src="images/drink2.jpg" alt="White Choco Mocha"> <!-- Add your item image here -->
+            <h3>White Choco Mocha</h3>
+        </div>
+        <div class="featured-item">
+            <img src="images/drink3.jpg" alt="Spanish Latte"> <!-- Add your item image here -->
+            <h3>Spanish Latte</h3>
+        </div>
+        <div class="featured-item">
+            <img src="images/drink4.jpg" alt="Almond Coffee Jelly"> <!-- Add your item image here -->
+            <h3>Almond Coffee Jelly</h3>
+        </div>
+    </section>
+    <section class="about-us">
+        <p>At Hygge Coffee Shop, we believe in creating a space where you can relax and enjoy the simple pleasures of life. Our coffee is crafted with care, and our cozy atmosphere is designed to make you feel at home. Whether you're here for a quick coffee or a leisurely afternoon, we look forward to welcoming you.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Hygge Coffee Shop. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
